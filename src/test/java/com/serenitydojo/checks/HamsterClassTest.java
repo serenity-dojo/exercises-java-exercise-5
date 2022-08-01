@@ -22,17 +22,4 @@ public class HamsterClassTest {
     public void theDogClassShouldHaveAFavoriteToy() throws Exception {
         assertThat(Class.forName("com.serenitydojo.Hamster").getDeclaredField("favoriteGame").getGenericType()).isEqualTo(String.class);
     }
-
-    @Test
-    public void theDogClassShouldHaveAMethodCalledMakeNoise() throws Exception {
-        assertThat(Class.forName("com.serenitydojo.Dog").getMethod("makeNoise").getReturnType()).isEqualTo(String.class);
-    }
-
-    @Test
-    public void theDogClassShouldHaveAConstantField_MAKE_NOISE() throws Exception {
-        Field makeNoise = Class.forName("com.serenitydojo.Dog").getDeclaredField("DOG_NOISE");
-        assertThat(makeNoise.getType()).isEqualTo(String.class);
-        assertThat(Modifier.isFinal(makeNoise.getModifiers())).isTrue();
-        assertThat(Modifier.isStatic(makeNoise.getModifiers())).isTrue();
-    }
 }
